@@ -1,8 +1,8 @@
 # requirements.txt
-shiny>=0.4
 pandas
 sentence_transformers
 hnswlib
+fastAPI
 
 
 
