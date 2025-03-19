@@ -1,8 +1,7 @@
 # requirements.txt
-python-3.10
 pandas
 sentence_transformers
-hnswlib
+hnswlib==0.7.0
 fastAPI
 uvicorn
 gunicorn
