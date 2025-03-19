@@ -3,7 +3,8 @@ pandas
 sentence_transformers
 hnswlib
 fastAPI
-uvicorn
+#uvicorn
+gunicorn
 
 
 
