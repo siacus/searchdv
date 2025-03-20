@@ -6,7 +6,7 @@ from sentence_transformers import SentenceTransformer
 import os
 
 # Initialize FastAPI app
-app = FastAPI(title="Dataverse Search API", description="API for searching datasets based on text queries", version="1.0")
+app = FastAPI(title="Dataverse NLP Search API", description="API for searching datasets based on text queries", version="1.0")
 
 # Load Data
 fname = "dataverse"
