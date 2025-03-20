@@ -9,24 +9,25 @@ import os
 app = FastAPI(title="Dataverse NLP Search API", description="API for searching datasets based on text queries", version="1.0")
 
 # Load Data
+app_files = "./app"
 fname = "dataverse"
-dv_records = pd.read_pickle(fname + ".pkl", compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
+dv_records = pd.read_pickle(os.path.join(app_files,fname + ".pkl"), compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
 
 # Load Model
 # model = SentenceTransformer('all-mpnet-base-v2')
 # model.save("./all-mpnet-base-v2")
 
 # load a local version
-model = SentenceTransformer("./all-mpnet-base-v2")
+model = SentenceTransformer(os.path.join(app_files,"all-mpnet-base-v2"))
 nemb = model[1].word_embedding_dimension
 
 # Load Search Indexes
 cols2embed = ['Description', 'Title', 'Meta']
 space = 'cosine'
 
-p0 = pd.read_pickle(f"{fname}-all-mpnet-base-v2-{cols2embed[0]}-{space}.pkl", compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
-p1 = pd.read_pickle(f"{fname}-all-mpnet-base-v2-{cols2embed[1]}-{space}.pkl", compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
-p2 = pd.read_pickle(f"{fname}-all-mpnet-base-v2-{cols2embed[2]}-{space}.pkl", compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
+p0 = pd.read_pickle(os.path.join(app_files,f"{fname}-all-mpnet-base-v2-{cols2embed[0]}-{space}.pkl"), compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
+p1 = pd.read_pickle(os.path.join(app_files,f"{fname}-all-mpnet-base-v2-{cols2embed[1]}-{space}.pkl"), compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
+p2 = pd.read_pickle(os.path.join(app_files,f"{fname}-all-mpnet-base-v2-{cols2embed[2]}-{space}.pkl"), compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
 
 K = 10
 p0.set_ef(100)
