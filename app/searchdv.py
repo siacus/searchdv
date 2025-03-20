@@ -13,7 +13,11 @@ fname = "dataverse"
 dv_records = pd.read_pickle(fname + ".pkl", compression={'method': 'gzip', 'compresslevel': 5, 'mtime': 1})
 
 # Load Model
-model = SentenceTransformer('all-mpnet-base-v2')
+# model = SentenceTransformer('all-mpnet-base-v2')
+# model.save("./all-mpnet-base-v2")
+
+# load a local version
+model = SentenceTransformer("./all-mpnet-base-v2")
 nemb = model[1].word_embedding_dimension
 
 # Load Search Indexes
