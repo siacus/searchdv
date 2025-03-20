@@ -19,7 +19,7 @@ EXPOSE 8000
 
 # Run the FastAPI app with Uvicorn
 # CMD ["uvicorn", "searchdv:app", "--reload", "--host", "0.0.0.0", "--port", "8000"]
-CMD uvicorn searchdv:app --reload --host 0.0.0.0 --port 8000
+CMD uvicorn searchdv:app --host 0.0.0.0 --port 8000
 #
 # docker tag searchdv smiacus/searchdv
 # docker push smiacus/searchdv
