@@ -9,6 +9,11 @@ uvicorn
 
 # docker build -t searchdv .
 # docker run -d -p 8000:8000 searchdv
+
 # curl -X 'POST' 'http://127.0.0.1:8000/search' \
 #     -H 'Content-Type: application/json' \
 #     -d '{"query": "Colorado Adoption Project"}'
+
+#
+# docker tag searchdv smiacus/searchdv
+# docker push smiacus/searchdv
