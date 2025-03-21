@@ -1,6 +1,6 @@
 # Use the official Python 3.10 image
-#FROM python:3.10
-FROM quay.io/fedora/python-310
+FROM python:3.10
+#FROM quay.io/fedora/python-310
 
 # Set the working directory
 # WORKDIR /app
