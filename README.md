@@ -17,3 +17,6 @@ docker tag searchdv smiacus/searchdv
 
 docker push smiacus/searchdv
 
+# Running as a service
+
+docker compose up -d
